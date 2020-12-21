@@ -14,6 +14,7 @@ public class DBManager {
     static{
         try {
             Class.forName(DRIVERNAME);
+            //hh
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
