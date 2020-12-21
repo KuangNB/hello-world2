@@ -1,8 +1,6 @@
 package tools;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class DBManager {
     private static final String DRIVERNAME = "com.mysql.jdbc.Driver";
@@ -29,5 +27,23 @@ public class DBManager {
             e.printStackTrace();
         }
         return conn;
+    }
+
+    //关闭数据库方法
+    public static void getClose(ResultSet rst, PreparedStatement pstm,Connection conn){
+        try {
+            if(rst != null)
+                rst.close();
+            if(pstm != null)
+                pstm.close();
+            if(conn != null)
+                conn.close();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+    }
+
+    public static void main(String[] args) {
+        System.out.println(getConnection());
     }
 }
